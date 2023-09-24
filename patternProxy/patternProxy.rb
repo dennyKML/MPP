@@ -75,30 +75,23 @@ end
 
 def make_payment(service, amount)
   service.process_payment(amount)
+  puts
 end
 
 # Оплата готівкою
 cash = Cash.new
 make_payment(cash, 350)
 
-puts
-
 # Оплата карткою
 credit_card = CreditCard.new("1234-5678-9012-3456", "9/24")
 make_payment(credit_card, 230)
-
-puts
 
 # Перевірка роботи валідації картки
 credit_card = CreditCard.new("0234-7321-4219-0984", "10/25")
 make_payment(credit_card, 230)
 
-puts
-
 credit_card = CreditCard.new("6234-7321-4219-09865", "10/25")
 make_payment(credit_card, 230)
-
-puts
 
 credit_card = CreditCard.new("4234-7321-4219-0984", "8/23")
 make_payment(credit_card, 230)
