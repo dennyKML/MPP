@@ -46,7 +46,7 @@ class CreditCard < Payment
     cur_month = Time.now.month
     cur_year = Time.now.year % 100
 
-    if !!(@card_number =~ pattern)
+    if @card_number =~ pattern
       print "Номер картки - дійсний, "
 
       if year.to_i > cur_year || (year.to_i == cur_year && month.to_i >= cur_month)
