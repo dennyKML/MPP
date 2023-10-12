@@ -14,6 +14,18 @@ ROMAN_NUMS = {
   'M' => 1000
 }
 
+def int_to_roman(num)
+  res = ''
+  ROMAN_NUMS.keys.sort_by { |key| ROMAN_NUMS[key] }.reverse.each do |key|
+    while num >= ROMAN_NUMS[key]
+      res += key
+      num -= ROMAN_NUMS[key]
+    end
+  end
+
+  res
+end
+
 def roman_to_int(roman)
   res = 0
   prev_val = 0
@@ -28,18 +40,6 @@ def roman_to_int(roman)
     end
 
     prev_val = val
-  end
-
-  res
-end
-
-def int_to_roman(num)
-  res = ''
-  ROMAN_NUMS.keys.sort_by { |key| ROMAN_NUMS[key] }.reverse.each do |key|
-    while num >= ROMAN_NUMS[key]
-      res += key
-      num -= ROMAN_NUMS[key]
-    end
   end
 
   res
